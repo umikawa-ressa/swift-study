@@ -23,15 +23,30 @@ class ViewController: UIViewController {
     }
 
     @IBAction func buttonPlus(_ sender: Any) {
-        // ラベル変数にカウントアップ処理を行う
+        count = count + 1
+        countLabel.text = String(count)
         
-        // 10以上になったらテキストカラーを黄色にする
+        if count == 10 {
+            changeTextColor()
+        }
     }
     
     @IBAction func buttonMinus(_ sender: Any) {
-        // ラベル変数にカウントダウン処理を行う
+        count = count - 1
+        countLabel.text = String(count)
         
-        // oになったらテキストカラーを黄色にする
+        if count == 0 {
+            resetTextColor()
+        }
+
+    }
+    
+    func changeTextColor() {
+        countLabel.textColor = .yellow
+    }
+    
+    func resetTextColor() {
+        countLabel.textColor = .white
     }
 }
 
